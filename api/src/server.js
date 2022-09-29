@@ -4,10 +4,16 @@ require("colors")
 const typeDefs = require("./schema")
 const resolvers = require("./resolvers")
 
+const { models,db } =require('./db/index')
+
 
 const PORT = 4000;
 const server = new ApolloServer({
-    typeDefs, resolvers
+    typeDefs, resolvers,context:()=>{
+        return {
+            models,db
+        }
+    }
 });
 
 server.listen(PORT, () => {

@@ -5,14 +5,14 @@ const schema = gql`
         name:String!,
         id:ID
     }
-    type Post{
-        title:String!,
-        body:String
+
+    type Pet{
+        id:ID!,
+        name:String!
     }
+
     type Query{
-        me:User!
-        getPosts:[Post]!
-        getFriends:[User!]!
+        pets:[Pet]!
     }
 `;
 
