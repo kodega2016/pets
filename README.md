@@ -28,3 +28,23 @@ mutation{
   }
 }
 ```
+
+enum data type
+```
+enum ShoeType{
+  NIKE
+  JORDAN
+  CALIBER
+}
+
+mutation{
+  newShoe(input:{
+    brand:NIKE,
+    size:"12"
+  }){
+    brand
+    size
+  }
+}
+
+```

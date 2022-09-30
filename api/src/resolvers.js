@@ -1,20 +1,20 @@
 module.exports = {
     Query: {
-        pets(_, { input }, { models }) {      
-            console.log(input)     
+        pets(_, { input }, { models }) {
+            console.log(input)
             const response = models.Pet.findMany();
             return response;
         },
-        shoes(_,{input},{models}){
+        shoes(_, { input }, { models }) {
             console.log(input);
             return [
                 {
-                    "brand":"Nike",
-                    "size":25
+                    "brand": "Nike",
+                    "size": 25
                 },
                 {
-                    "brand":"Caliber",
-                    "size":30
+                    "brand": "Caliber",
+                    "size": 30
                 }
             ];
         }
@@ -28,16 +28,16 @@ module.exports = {
         }
     },
 
-    Mutation:{
-        newShoe:(_,{input})=>{
+    Mutation: {
+        newShoe: (_, { input }) => {
             console.log(input)
             return input;
         }
     },
-    Shoe:{
+    Shoe: {
         __resolveType: obj => {
-          
+
             return {}
-          }
+        }
     }
 }

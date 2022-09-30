@@ -1,11 +1,16 @@
 const gql = require("graphql-tag")
 
 const schema = gql`
+    enum ShoeType{
+        NIKE
+        JORDAN
+        CALIBER
+        MAGIC
+    }
     type User{
         name:String!,
         id:ID
     }
-
     type Pet{
         id:ID!,
         createdAt:String,
@@ -13,39 +18,26 @@ const schema = gql`
         type:String!
         image:String!
     }
-
     input PetIput{
         name:String,
         type:String
     }
-
-    # enum ShoeType{
-    #     NIKE
-    #     JORDAN
-    #     CALIBER
-    # }
-
-
     input ShoesInput{
-        brand:String,
+        brand:ShoeType,
         size:Int
     }
-
     type Shoe{
-        brand:String,
+        brand:ShoeType,
         size:Int
     }
-
     type Query{
         pets(input:PetIput!):[Pet]!
         shoes(input:ShoesInput!):[Shoe]
     }
-
     input NewShoeInput{
-        brand:String,
+        brand:ShoeType,
         size:String
     }
-
     type Mutation{
         newShoe(input:NewShoeInput!):Shoe!
     }
