@@ -33,6 +33,15 @@ const schema = gql`
         pets(input:PetIput!):[Pet]!
         shoes(input:ShoesInput!):[Shoe]
     }
+
+    input NewShoeInput{
+        brand:String,
+        size:String
+    }
+
+    type Mutation{
+        newShoe(input:NewShoeInput!):Shoe!
+    }
 `;
 
 module.exports = schema

@@ -1,8 +1,6 @@
 module.exports = {
     Query: {
-        pets(_, { input }, { models }) {
-            console.log(input.name);
-            console.log(input.type);
+        pets(_, { input }, { models }) {           
             const response = models.Pet.findMany();
             return response;
         },
@@ -26,6 +24,13 @@ module.exports = {
         },
         image(pet) {
             return pet.type === 'dog' ? 'dog-image' : 'cat-image';
+        }
+    },
+
+    Mutation:{
+        newShoe:(_,{input})=>{
+            console.log(input)
+            return input;
         }
     }
 }
