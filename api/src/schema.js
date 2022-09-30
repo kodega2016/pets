@@ -19,19 +19,20 @@ const schema = gql`
         type:String
     }
 
-    enum ShoeType{
-        NIKE
-        JORDAN
-        CALIBER
-    }
+    # enum ShoeType{
+    #     NIKE
+    #     JORDAN
+    #     CALIBER
+    # }
+
 
     input ShoesInput{
-        brand:ShoeType,
+        brand:String,
         size:Int
     }
 
     type Shoe{
-        brand:ShoeType,
+        brand:String,
         size:Int
     }
 
@@ -41,7 +42,7 @@ const schema = gql`
     }
 
     input NewShoeInput{
-        brand:ShoeType,
+        brand:String,
         size:String
     }
 

@@ -1,6 +1,7 @@
 module.exports = {
     Query: {
-        pets(_, { input }, { models }) {           
+        pets(_, { input }, { models }) {      
+            console.log(input)     
             const response = models.Pet.findMany();
             return response;
         },
@@ -32,5 +33,11 @@ module.exports = {
             console.log(input)
             return input;
         }
+    },
+    Shoe:{
+        __resolveType: obj => {
+          
+            return {}
+          }
     }
 }
