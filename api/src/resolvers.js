@@ -1,16 +1,31 @@
 module.exports = {
-   Query:{
-        pets(_,__,{models}){
-            const response=models.Pet.findMany();      
+    Query: {
+        pets(_, { input }, { models }) {
+            console.log(input.name);
+            console.log(input.type);
+            const response = models.Pet.findMany();
             return response;
+        },
+        shoes(_,{input},{models}){
+            console.log(input);
+            return [
+                {
+                    "brand":"Nike",
+                    "size":25
+                },
+                {
+                    "brand":"Caliber",
+                    "size":30
+                }
+            ];
         }
-   },
-   Pet:{
-    id(){
-        return 'this-is-updated-id'
     },
-    image(pet){
-        return pet.type==='dog'?'dog-image':'cat-image';
+    Pet: {
+        id() {
+            return 'this-is-updated-id'
+        },
+        image(pet) {
+            return pet.type === 'dog' ? 'dog-image' : 'cat-image';
+        }
     }
-   }
 }

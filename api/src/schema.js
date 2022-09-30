@@ -14,8 +14,24 @@ const schema = gql`
         image:String!
     }
 
+    input PetIput{
+        name:String,
+        type:String
+    }
+
+    input ShoesInput{
+        brand:String,
+        size:Int
+    }
+
+    type Shoe{
+        brand:String,
+        size:Int
+    }
+
     type Query{
-        pets:[Pet]!
+        pets(input:PetIput!):[Pet]!
+        shoes(input:ShoesInput!):[Shoe]
     }
 `;
 
