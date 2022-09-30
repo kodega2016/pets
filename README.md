@@ -48,3 +48,26 @@ mutation{
 }
 
 ```
+
+interface type
+when we define interface type we need to resolve the type with the following sytax
+```
+Shoe: {
+    __resolveType(shoe){
+        if(shoe.sport){
+            return "Sneaker";
+        }else{
+            return "Boot";
+        }
+    }
+}
+```
+
+> when we define enum we need to resolve using following syntax
+
+```
+ShoeType:{
+      NIKE: 'Nike',
+      JORDAN: 'Jordan',
+}
+```

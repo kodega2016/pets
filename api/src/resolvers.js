@@ -1,3 +1,5 @@
+const schema = require("./schema");
+
 module.exports = {
     Query: {
         pets(_, { input }, { models }) {
@@ -13,7 +15,7 @@ module.exports = {
                     "size": 25
                 },
                 {
-                    "brand": "Caliber",
+                    "brand": "Jordan",
                     "size": 30
                 }
             ];
@@ -35,9 +37,16 @@ module.exports = {
         }
     },
     Shoe: {
-        __resolveType: obj => {
-
-            return {}
+        __resolveType(shoe){
+            if(shoe.sport){
+                return "Sneaker";
+            }else{
+                return "Boot";
+            }
         }
+    },
+    ShoeType:{
+        NIKE: 'Nike',
+        JORDAN: 'Jordan',
     }
 }

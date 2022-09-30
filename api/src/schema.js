@@ -4,8 +4,6 @@ const schema = gql`
     enum ShoeType{
         NIKE
         JORDAN
-        CALIBER
-        MAGIC
     }
     type User{
         name:String!,
@@ -26,10 +24,21 @@ const schema = gql`
         brand:ShoeType,
         size:Int
     }
-    type Shoe{
+    interface Shoe{
         brand:ShoeType,
         size:Int
     }
+    type Sneaker implements Shoe{
+        brand:ShoeType,
+        size:Int,
+        sport:String
+    }
+    type Boot implements Shoe{
+        brand:ShoeType,
+        size:Int,
+        hasGrip:Boolean
+    }
+
     type Query{
         pets(input:PetIput!):[Pet]!
         shoes(input:ShoesInput!):[Shoe]
