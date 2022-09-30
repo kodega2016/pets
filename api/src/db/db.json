@@ -3,5 +3,11 @@
         "id":"this-is-id",
         "name":"Khadga Shrestha"
     },
-    "pets":[]
+    "pet":[
+        {
+            "id":"p-id",
+            "name":"Puppy",
+            "type":"cat"
+        }
+    ]
 }

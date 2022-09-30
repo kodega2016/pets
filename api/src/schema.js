@@ -8,7 +8,10 @@ const schema = gql`
 
     type Pet{
         id:ID!,
-        name:String!
+        createdAt:String,
+        name:String!,
+        type:String!
+        image:String!
     }
 
     type Query{
